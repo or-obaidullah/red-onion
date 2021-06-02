@@ -19,7 +19,7 @@ ul, li{
   }
 }
 
-@media (max-width:480px){
+@media (max-width:560px){
   .header{
     display: block!important;
     text-align: center;

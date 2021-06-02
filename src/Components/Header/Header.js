@@ -19,6 +19,7 @@ const Header = () => {
 
           });
     }
+
     return (
         <>
             <div className='header-section'>
@@ -26,6 +27,10 @@ const Header = () => {
                     <Link to="/"><img src={logo} alt="logo" /></Link>
                     <div className="header-Right">
                         <Link to="/cart"><FiShoppingCart /><span className='ml-1'>{cart.length}</span></Link>
+                        {
+                            loggedInUser.isSignIn &&
+                            <span>{loggedInUser.name}</span>
+                        }
                         {
                             !loggedInUser.isSignIn && <Link to="/login">Login</Link>
                         }

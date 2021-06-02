@@ -18,7 +18,7 @@
 }
 .header-Right a{
     color: black;
-    margin-left: 25px;
+    margin-left: 15px;
 }
 .header-Right a:first-child{
     margin-left: 0;
@@ -34,5 +34,9 @@
 }
 .header-Right a:last-child:hover{
     background-color: #ac0e2e;
+}
+.header-Right span{
+    margin-left: 15px;
+    font-size: 20px;
 }
 
