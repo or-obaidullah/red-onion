@@ -1,0 +1,15 @@
+.footer{
+    background-color: #131212;
+}
+.footer img{
+    height: 30px;
+}
+.footer li{
+    list-style-type: none;
+    color: rgba(255, 255, 255, 0.801);
+    font-size: 14px;
+    line-height: 2;
+}
+.footer small{
+    color: #ffffff5c;
+}

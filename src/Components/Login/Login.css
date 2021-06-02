@@ -1,0 +1,34 @@
+.auth{
+    background: url(../../images/bannerbackground.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 125% 100%;
+}
+.auth .row{
+    height: 100vh;
+}
+.auth img{
+    height: 60px;
+    margin-bottom: 50px;
+}
+.formInput .form-control{
+    background: #ffffff;
+    padding: 25px;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 0 0 10px lightgrey;
+}
+.allBtn{
+    border: none;
+    color: #fff;
+    background: #f91a47;
+    border-radius: 5px;
+    width: 100%;
+    padding: 10px 0;
+}
+.auth button:focus{
+    outline: none;
+}
+.auth p{
+    color: #f91a47;
+}

@@ -1,0 +1,38 @@
+.header-section{
+    box-shadow: 0 0 5px #808080e6;
+    z-index: 1111111;
+    background: #ffffff;
+    position: fixed;
+    width: 100%;
+    top: 0;
+}
+.header{
+    width: 80%;
+    margin: auto;
+}
+.header img{
+    height: 40px;
+}
+.header a{
+    text-decoration: none;
+}
+.header-Right a{
+    color: black;
+    margin-left: 25px;
+}
+.header-Right a:first-child{
+    margin-left: 0;
+    font-size: 20px;
+    font-weight: bold;
+}
+.header-Right a:last-child{
+    background: #f91a47;
+    padding: 7px 23px;
+    border-radius: 40px;
+    color: #fff;
+    transition: 0.3s;
+}
+.header-Right a:last-child:hover{
+    background-color: #ac0e2e;
+}
+

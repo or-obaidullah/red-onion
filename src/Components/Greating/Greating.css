@@ -1,0 +1,26 @@
+.whyChoose p{
+    font-size: 15px;
+}
+.whyChoose .card{
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 0 10px lightgrey;
+}
+.whyChoose .card .modeIcon{
+    background-color: #f91944;
+    color: #fff;
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    margin-right: 17px;
+}
+.whyChoose .card a{
+    text-decoration: none;
+}
+.whyChoose .card .rightArrow{
+    background-color: #19e270;
+    color: #fff;
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+}

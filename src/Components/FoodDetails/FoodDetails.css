@@ -1,0 +1,28 @@
+.foodDetails{
+    min-height: 380px;
+}
+.foodDetails img{
+    height: 350px;
+}
+.foodDetails h3{
+    font-size: 35px;
+    font-weight: 600;
+}
+.foodDetails .toggleBtn{
+    font-size: 25px;
+    border: 1px solid #80808061;
+    border-radius: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.foodDetails button{
+    outline: none;
+}
+.toggleBtn span:first-child, .toggleBtn span:last-child{
+    padding: 2px 20px;
+    cursor: pointer;
+}
+.toggleBtn span:last-child{
+    color: red;
+}
