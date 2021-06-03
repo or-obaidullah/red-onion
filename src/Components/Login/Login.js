@@ -19,7 +19,9 @@ const Login = () => {
         name: '',
         email:'',
         password:'',
-        confirmPassword: ''
+        confirmPassword: '',
+        error: '',
+        success: false
     });
     const {name,email,password} = user;
 
@@ -29,8 +31,7 @@ const Login = () => {
     
     const handleGoogleSignIn = () => {
         var provider = new firebase.auth.GoogleAuthProvider();
-        firebase.auth()
-        .signInWithPopup(provider)
+        firebase.auth().signInWithPopup(provider)
         .then((result) => {
             var {displayName,email} = result.user;
             const signInUser = {
@@ -46,7 +47,7 @@ const Login = () => {
         });
     }
     const handleOnBlur = (e) =>{
-        console.log(e.target.name, e.target.value);
+        // console.log(e.target.name, e.target.value);
         let isFieldValid = true;
         if (e.target.name === 'email') {
             isFieldValid = /\S+@\S+\.+\S+/.test(e.target.value);
@@ -69,7 +70,7 @@ const Login = () => {
     }
     //create New account
     const handleSubmit = (e) => {
-        if(newUser && name && email && password){
+        if(!newUser && name && email && password){
             console.log('submit');
             firebase.auth().createUserWithEmailAndPassword(user.email, user.password)
             .then(result => {
@@ -88,12 +89,14 @@ const Login = () => {
                    
             })
             .catch((error) => {
-                var errorMessage = error.message;
-                console.log(errorMessage);
+                const newUserInfo = {...user}
+                newUserInfo.error = error.message;
+                newUserInfo.success = true;
+                setUser(newUserInfo)
             });
 
         }
-        if(!newUser && user.email && user.password){
+        if(newUser && user.email && user.password){
             firebase.auth().signInWithEmailAndPassword(user.email, user.password)
             .then(result => {
                 var {displayName,email} = result.user;
@@ -106,7 +109,10 @@ const Login = () => {
                     history.replace(from);     
             })
             .catch(error => {
-                var errorMessage = error.message;
+                const newUserInfo = {...user}
+                newUserInfo.error = error.message;
+                newUserInfo.success = true;
+                setUser(newUserInfo)
             });
         }
         
@@ -122,16 +128,21 @@ const Login = () => {
                         <img  src={logo} alt="" />
                         <form className='formInput' onSubmit={handleSubmit}>
                             {
-                                newUser &&
+                                !newUser &&
                                 <input onChange={handleOnBlur} type="text" name='name' className='form-control mt-3' placeholder='Name' />
                             }
                             <input onChange={handleOnBlur} type="email" name='email' className='form-control mt-3' placeholder='Email' />
                             <input onChange={handleOnBlur} type="password" name='password' className='form-control mt-3' placeholder='Password' />
                             {
-                                newUser &&
+                                !newUser &&
                                 <input onChange={handleOnBlur} type="password" name='confirmPassword' className='form-control mt-3' placeholder='Confirm Password' />
                             }
+                            {
+                                user.success &&
+                                <span style={{color:'red'}}>{user.error}</span>
+                            }
                             <button type='submit' className='allBtn mt-3'>{newUser ? 'sign Up' : 'sign In'}</button>
+                            
                         </form>
                         <div className='d-flex justify-content-around'>
                             <span style={{cursor:'pointer'}}  onClick={handleGoogleSignIn}>Sign with Google</span>

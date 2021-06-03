@@ -35,8 +35,9 @@
 .header-Right a:last-child:hover{
     background-color: #ac0e2e;
 }
-.header-Right span{
+.header-Right .welcome{
     margin-left: 15px;
     font-size: 20px;
+    color: darkmagenta;
 }
 

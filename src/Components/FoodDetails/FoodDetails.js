@@ -37,7 +37,7 @@ const FoodDetails = (props) => {
                 <button className='searchBtn px-4 py-2 ml-1 mt-4' onClick={()=>addToCart(singleFood)}><FiShoppingCart /><span className='ml-3'>Add</span></button>
             </div>
 
-            <div className="col-md-6">
+            <div className="col-md-6 text-center">
                 <img src={img} alt="image" />
             </div>
         </div>

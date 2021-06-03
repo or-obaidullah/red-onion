@@ -7,6 +7,8 @@ import Cart from '../Cart/Cart'
 import FoodDetails from '../FoodDetails/FoodDetails';
 import './FoodBody.css';
 import FoodCard from './FoodCard';
+import { scroll} from 'react-scroll'
+
 const FoodBody = () => {
     const [cart, setCart, loggedInUser, setLoggedInUser] = useContext(UserContext);
     
@@ -14,6 +16,7 @@ const FoodBody = () => {
     const lunch = FoodData.filter(items => items.category === 'lunch');
     const dinner = FoodData.filter(items => items.category === 'dinner');
 
+    let history = useHistory();
     const [food, setFood] = useState({
         activeProduct: 2,
         product: lunch,
@@ -27,6 +30,12 @@ const FoodBody = () => {
     }
     const foodHandler = (foodItem) => {
         setSingleFood(foodItem);
+        window.scroll({
+            top: 500,
+            left: 0, 
+            behavior: 'smooth',
+          });
+
     }
     const addToCart = (singleFood)=>{
         const sameFoods = cart.find(food => food.key === singleFood.key);
@@ -42,7 +51,7 @@ const FoodBody = () => {
             setTimeout(() => setSuccess(false),1500)
         }
     }
-    let history = useHistory();
+    
     const checkoutFood = () =>{
         history.push("/cart");
     }
@@ -58,7 +67,7 @@ const FoodBody = () => {
                 </div>
             </div>
 
-            <div className="Food-section">
+            <div className="Food-section" id='foodSection'>
                 <div className="CategoryBtn text-center py-5">
                     <NavLink to="" activeClassName={food.activeProduct === 1 && 'activeCategoryBtn'} onClick={()=> selectedFoodBtn(breakfast, 1)}>BreakFast</NavLink>
 
@@ -82,7 +91,7 @@ const FoodBody = () => {
                     <FoodDetails success={success}  addToCart={addToCart} singleFood={singleFood}></FoodDetails>
                 }
 
-                <div className='checkoutFood text-center my-5'>
+                <div className='checkoutFood text-md-center mb-5 mt-2'>
                 
                 {
                     

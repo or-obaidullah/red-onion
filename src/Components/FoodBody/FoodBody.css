@@ -56,6 +56,9 @@
     background: #f91a47;
     border-radius: 10px;
 }
+.foodCard {
+    cursor: pointer;
+}
 .foodCard img{
     width: 70%;
 }
